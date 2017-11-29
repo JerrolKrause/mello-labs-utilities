@@ -25,7 +25,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import your library
-import { FormToolsModule } from 'mello-labs-form-tools';
+import { FormToolsModule } from '@mello-labs/form-tools';
 
 @NgModule({
   declarations: [
