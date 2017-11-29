@@ -1,6 +1,9 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePipe, CurrencyPipe } from '@angular/common';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Bootstrap
 
 import { FieldComponent } from './components/field/field.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
@@ -12,7 +15,8 @@ export * from './components/file-upload/file-upload.component';
   imports: [
 	  CommonModule,
 	  FormsModule,
-	  ReactiveFormsModule
+	  ReactiveFormsModule,
+	  NgbModule.forRoot()
   ],
   declarations: [
 	  FieldComponent,
@@ -27,7 +31,7 @@ export class FormToolsModule {
   static forRoot(): ModuleWithProviders {
     return {
 		ngModule: FormToolsModule,
-      providers: []
+		providers: [DatePipe, CurrencyPipe]
     };
   }
 }
