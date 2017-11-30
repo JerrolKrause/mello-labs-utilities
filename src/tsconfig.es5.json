@@ -21,8 +21,8 @@
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "mello-labs-form-tools.js",
-    "flatModuleId": "@mello-labs/form-tools"
+    "flatModuleOutFile": "mello-labs-utilities.js",
+    "flatModuleId": "@mello-labs/utilities"
   },
   "files": [
     "./index.ts"

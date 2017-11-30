@@ -1,36 +1,24 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DatePipe, CurrencyPipe } from '@angular/common';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Bootstrap
+import { UtilitiesService } from './services/utilities.service';
+import { LoggingService } from './services/logging.service';
 
-import { FieldComponent } from './components/field/field.component';
-import { FileUploadComponent } from './components/file-upload/file-upload.component';
-
-export * from './components/field/field.component';
-export * from './components/file-upload/file-upload.component';
 
 @NgModule({
   imports: [
-	  CommonModule,
-	  FormsModule, ReactiveFormsModule, NgbModule.forRoot()
+	  CommonModule
   ],
   declarations: [
-	  FieldComponent,
-	  FileUploadComponent
   ],
   exports: [
-	  FieldComponent,
-	  FileUploadComponent//,
-	  //FormsModule, ReactiveFormsModule, NgbModule
   ]
 })
-export class FormToolsModule {
+export class UtilitiesModule {
   static forRoot(): ModuleWithProviders {
     return {
-		ngModule: FormToolsModule,
-		providers: []//DatePipe, CurrencyPipe
+		ngModule: UtilitiesModule,
+		providers: [ UtilitiesService, LoggingService ]
     };
   }
 }

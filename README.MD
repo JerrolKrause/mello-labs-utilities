@@ -1,11 +1,11 @@
-# @mello-labs/form-tools
+# @mello-labs/utilities
 
 ## Installation
 
 To install this library, run:
 
 ```bash
-$ npm install @mello-labs/form-tools --save
+$ npm install @mello-labs/utilities --save
 ```
 
 ## Consuming your library
@@ -13,7 +13,7 @@ $ npm install @mello-labs/form-tools --save
 Once you have published your library to npm, you can import your library in any Angular application by running:
 
 ```bash
-$ npm install @mello-labs/form-tools
+$ npm install @mello-labs/utilities
 ```
 
 and then from your Angular `AppModule`:
@@ -25,7 +25,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import your library
-import { FormToolsModule } from '@mello-labs/form-tools';
+import { UtilitiesModule } from '@mello-labs/utilities';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { FormToolsModule } from '@mello-labs/form-tools';
     BrowserModule,
 
     // Specify your library as an import
-    FormToolsModule
+    UtilitiesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

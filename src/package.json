@@ -1,10 +1,10 @@
 {
-	"name": "@mello-labs/form-tools",
-	"version": "0.1.6",
-	"description": "Form field components for rapid form creation & development",
+	"name": "@mello-labs/utilities",
+	"version": "0.1.1",
+	"description": "A collection of generic utilities and commonly used functions",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/JerrolKrause/mello-labs-form-tools"
+		"url": "https://github.com/JerrolKrause/mello-labs-utilities"
 	},
 	"author": {
 		"name": "Jerrol Krause",
@@ -15,16 +15,14 @@
 	],
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/JerrolKrause/mello-labs-form-tools/issues"
+		"url": "https://github.com/JerrolKrause/mello-labs-utilities/issues"
 	},
-	"main": "mello-labs-form-tools.umd.js",
-	"module": "mello-labs-form-tools.js",
-	"jsnext:main": "mello-labs-form-tools.js",
-	"typings": "mello-labs-form-tools.d.ts",
+	"main": "mello-labs-utilities.umd.js",
+	"module": "mello-labs-utilities.js",
+	"jsnext:main": "mello-labs-utilities.js",
+	"typings": "mello-labs-utilities.d.ts",
 	"peerDependencies": {
 		"@angular/core": "^5.0.0",
-		"@angular/forms": "^5.0.0",
-		"@ng-bootstrap/ng-bootstrap": "1.0.0-beta.5",
 		"rxjs": "^5.1.0",
 		"zone.js": "^0.8.4"
 	}

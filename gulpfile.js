@@ -125,7 +125,7 @@ gulp.task('rollup:umd', function () {
       // The name to use for the module for UMD/IIFE bundles
       // (required for bundles with exports)
       // See "name" in https://rollupjs.org/#core-functionality
-      name: 'mello-labs-form-tools',
+      name: 'mello-labs-utilities',
 
       // See "globals" in https://rollupjs.org/#core-functionality
       globals: {
@@ -133,7 +133,7 @@ gulp.task('rollup:umd', function () {
       }
 
     }))
-    .pipe(rename('mello-labs-form-tools.umd.js'))
+    .pipe(rename('mello-labs-utilities.umd.js'))
     .pipe(gulp.dest(distFolder));
 });
 
