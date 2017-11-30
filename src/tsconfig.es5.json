@@ -22,7 +22,7 @@
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "mello-labs-form-tools.js",
-    "flatModuleId": "mello-labs-form-tools"
+    "flatModuleId": "@mello-labs/form-tools"
   },
   "files": [
     "./index.ts"

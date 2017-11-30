@@ -14,9 +14,7 @@ export * from './components/file-upload/file-upload.component';
 @NgModule({
   imports: [
 	  CommonModule,
-	  FormsModule,
-	  ReactiveFormsModule,
-	  NgbModule.forRoot()
+	  FormsModule, ReactiveFormsModule, NgbModule.forRoot()
   ],
   declarations: [
 	  FieldComponent,
@@ -24,14 +22,15 @@ export * from './components/file-upload/file-upload.component';
   ],
   exports: [
 	  FieldComponent,
-	  FileUploadComponent
+	  FileUploadComponent//,
+	  //FormsModule, ReactiveFormsModule, NgbModule
   ]
 })
 export class FormToolsModule {
   static forRoot(): ModuleWithProviders {
     return {
 		ngModule: FormToolsModule,
-		providers: [DatePipe, CurrencyPipe]
+		providers: []//DatePipe, CurrencyPipe
     };
   }
 }

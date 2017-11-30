@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 import { DatePipe, CurrencyPipe } from '@angular/common';
-import { Subscription } from "rxjs";
+import { Subscription } from "rxjs/Subscription";
 import { Observable } from 'rxjs/Observable';
 
-//TODO: Refactor currency and date fields to subcomponents, move logic
-
+// TODO: Refactor currency and date fields to subcomponents, move logic
+// TODO: Figure out why default properties set above constructor are being ignored/deleted and have to be set inside the constructor
 @Component({
     selector: 'field-component',
     templateUrl: './field.component.html'
@@ -30,7 +30,7 @@ export class FieldComponent implements OnInit {
 
 	public typeahead: any = ''; // Holds typehead model
 	/** Observable that powers the typehead*/
-	public typeaheadSearch = (text$: Observable<string>) =>
+	public typeaheadSearch = (text$) =>
 		text$
 			.debounceTime(200)
 			.distinctUntilChanged()
@@ -41,18 +41,24 @@ export class FieldComponent implements OnInit {
 				}).slice(0, 10));
 	// Formats the output
 	public formatter = (x: { key: string }) => x[this.modelLabel] || x;
-
-
+	
     private frmGroupSub: Subscription; // If this field elements needs to subscribe to form changes
     
     constructor(
         private datePipe: DatePipe,
         private currencyPipe: CurrencyPipe
 	) {
+		// Set defaults
+		this.placeholder = '';
+		this.type = 'text';
+		this.labelColumns = 3;
+		this.disabled = false;
+		this.showPwd = false;
+		this.altFormat = '';
     }
 
 	ngOnInit() {
-        
+		
 		this.field = this.frmGroup.get(this.frmControl); //Set a reference to this field for simplicity
 
         // Since the visible currency field is a mask and not connected to the main formgroup, it needs to know when the form model changes
@@ -78,7 +84,6 @@ export class FieldComponent implements OnInit {
                 }
             });
         }
-
     }
 
     ngOnDestroy() {
@@ -89,7 +94,7 @@ export class FieldComponent implements OnInit {
     }
 
     checkboxMap($event) {
-        console.log('Changing', $event, this.model);
+        //console.log('Changing', $event, this.model);
     }
 
     /**
