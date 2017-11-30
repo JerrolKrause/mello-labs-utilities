@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { UtilitiesService } from './services/utilities.service';
 import { LoggingService } from './services/logging.service';
 
+export * from './services/utilities.service'; 
+export * from './services/logging.service';
 
 @NgModule({
   imports: [
