@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+// TODO: This service will need to switch to getter/setters for app props before it is actually usable. Currently moved to utilities for future proofing.
+
 //Typings needed to get analytics snippets to play nice in typescript
 declare var window: any;
 declare var mixpanel: any;
@@ -14,7 +16,7 @@ export class LoggingService {
         'Product': 'M',
         'User': 'A',
         'Experience': 'U',
-        'Website': 'Angular Seed Complete'
+        'Website': 'Angular Starter'
     };
 
     private prodHost: string = 'www.example.com';   //Prod domain, used to switch tokens. This should match the hostname
