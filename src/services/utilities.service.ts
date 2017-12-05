@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subscription } from "rxjs";
 
 @Injectable()
 export class UtilitiesService {
 
 	constructor(
-	) {
-	}
+	) {}
     
 	/**
 	* Copy the selected string to the clipboard

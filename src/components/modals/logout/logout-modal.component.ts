@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy} from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/observable/interval';
 
 @Component({
     selector: 'logout-modal',
@@ -24,7 +25,7 @@ export class LogoutModalComponent implements OnInit {
 
     ngOnInit() {
 		this.counter = this.data; // How long to display the modal window
-
+		
         // Create a timer obserable that counts down
         this.logoutTimer$ = Observable.interval(1000).subscribe(res => {
             // If timer is greater than 0, count down.

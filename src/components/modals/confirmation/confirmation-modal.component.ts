@@ -1,5 +1,5 @@
-import { Component, OnInit, EventEmitter} from '@angular/core';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, EventEmitter} from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 export interface IErrorApi {
 	errorMsg?: string;
@@ -17,7 +17,7 @@ export interface IErrorApi {
     selector: 'confirmation-modal',
     templateUrl: './confirmation-modal.component.html'
 })
-export class ConfirmationModalComponent implements OnInit {
+export class ConfirmationModalComponent{
 
     public waiting: boolean = false;
     public error: IErrorApi;
@@ -26,12 +26,9 @@ export class ConfirmationModalComponent implements OnInit {
 	public onSuccess: EventEmitter<any> = new EventEmitter();
 
     constructor(
-        private modalService: NgbModal,
         public activeModal: NgbActiveModal
     ) { }
 
-    ngOnInit() {}
-    
     /**
      * Submit the form
      */
