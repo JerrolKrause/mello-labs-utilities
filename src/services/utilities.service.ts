@@ -12,7 +12,9 @@ export class UtilitiesService {
 	private postMessageOrigin: string;
 
 	constructor(
-	) { }
+	) {
+		this.postMessage$ = new BehaviorSubject(null);
+	}
 
 	/**
 	 * Listen to postMessage events
