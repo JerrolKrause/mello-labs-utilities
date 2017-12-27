@@ -1,6 +1,6 @@
 {
 	"name": "@mello-labs/utilities",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"description": "A collection of generic utilities and commonly used functions",
 	"repository": {
 		"type": "git",

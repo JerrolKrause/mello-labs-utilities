@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UtilitiesService {
 
 	/** Holds postmessage response */
-	private postMessage$ = new BehaviorSubject(null);
+	private postMessage$: Subject<MessageEvent> = new Subject();
 	/** Holds event listener for postMessage */
 	private postMessageListener;
 	/** The origin domain to whitelist incoming post messages */
@@ -13,17 +14,18 @@ export class UtilitiesService {
 
 	constructor(
 	) {
-		this.postMessage$ = new BehaviorSubject(null);
+		this.postMessage$ = new Subject();
 	}
 
 	/**
 	 * Listen to postMessage events
-	 * @param origin The origin domain that the post message is expected from for whitelisting. IE 'http://localhost:4200'
+	 * @param origin OPTIONAL: The origin domain that the post message is expected from for whitelisting. IE 'http://localhost:4200'.
+	 * Leave blank if origin checking not needed or is done manually
 	 */
-	public postMessageListen(origin: string) {
+	public postMessageListen(origin: string = null) {
 		this.postMessageListener = window.addEventListener('message', this.messageReceived.bind(this), false); // Add an event listener
 		this.postMessageOrigin = origin; // Set origin
-		return this.postMessage$; // Return observable
+		return this.postMessage$.asObservable(); // Return observable
 	}
 
 	/**
@@ -32,14 +34,16 @@ export class UtilitiesService {
 	 */
 	private messageReceived(event: MessageEvent) {
 		// Make sure this isn't a null message event
-		if (event.data && event.data.type != 'webpackOk') {
+		// Ignore requests where the originator matches the current domain
+		if (event.data && event.data.type != 'webpackOk' && event.origin != window.location.origin) {
+			// console.warn('messageReceived', event)
 			// If this is from the correct original url and has a token
-			if (event.origin == this.postMessageOrigin) { // && event.data.token
-				this.postMessage$.next(event.data.payload);
+			if ((this.postMessageOrigin && event.origin == this.postMessageOrigin) || this.postMessageOrigin == null) {
+				this.postMessage$.next(event);
 			}
 			// Add some error messaging to check for origin
 			else if (event.origin != this.postMessageOrigin) {
-				console.error('This workstation was loaded from an unapproved client');
+				console.error('This workstation was loaded from an unauthorized client');
 			}
 		}
 	}
